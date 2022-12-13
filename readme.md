@@ -17,7 +17,7 @@ Something bad (resizing, anti-aliasing, ?...) seems to be occurring in the final
 [![artifacts][3]][3]
 
 ***
-_Try `TextRenderer` (using black-on-white) per dr.null's comment.
+_Tried `TextRenderer` (using black-on-white) per dr.null's comment._
 
 [![minimal][4]][4]
 

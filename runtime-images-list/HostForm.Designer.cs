@@ -380,16 +380,19 @@ namespace runtime_images_list
             // 
             this.radioButtonUseBitmaps.AutoSize = true;
             this.radioButtonUseBitmaps.Checked = true;
+            this.radioButtonUseBitmaps.ForeColor = System.Drawing.Color.Cyan;
             this.radioButtonUseBitmaps.Location = new System.Drawing.Point(28, 308);
             this.radioButtonUseBitmaps.Name = "radioButtonUseBitmaps";
             this.radioButtonUseBitmaps.Size = new System.Drawing.Size(135, 29);
             this.radioButtonUseBitmaps.TabIndex = 2;
+            this.radioButtonUseBitmaps.TabStop = true;
             this.radioButtonUseBitmaps.Text = "Use Bitmaps";
             this.radioButtonUseBitmaps.UseVisualStyleBackColor = true;
             // 
             // radioButtonUseDrawstring
             // 
             this.radioButtonUseDrawstring.AutoSize = true;
+            this.radioButtonUseDrawstring.ForeColor = System.Drawing.Color.Cyan;
             this.radioButtonUseDrawstring.Location = new System.Drawing.Point(180, 308);
             this.radioButtonUseDrawstring.Name = "radioButtonUseDrawstring";
             this.radioButtonUseDrawstring.Size = new System.Drawing.Size(157, 29);

@@ -5,7 +5,14 @@ namespace runtime_images_list
 {
     public partial class HostForm : Form
     {
-        public HostForm() => InitializeComponent();
+        public HostForm()
+        {
+            InitializeComponent();
+#if DEBUG
+            _imgFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Paint")!;
+            Directory.CreateDirectory(_imgFolder);
+#endif
+        }
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e); 
@@ -37,7 +44,8 @@ namespace runtime_images_list
             setLabelAttributes(label: label15, font: font, text: "\uE804", foreColor: Color.LightGreen, backColor: backColor);
 
             makeRuntimeImageList();
-        }        private void setLabelAttributes(Label label, Font font, string text, Color foreColor, Color backColor)
+        }        
+        private void setLabelAttributes(Label label, Font font, string text, Color foreColor, Color backColor)
         {
             label.UseCompatibleTextRendering = true;
             label.Font = font;
@@ -60,9 +68,16 @@ namespace runtime_images_list
                 Bitmap bitmap = new Bitmap(label.Width, label.Height);
                 label.DrawToBitmap(bitmap, label.ClientRectangle);
                 imageList22.Images.Add(bitmap);
+#if DEBUG
+                bitmap.Save(Path.Combine(_imgFolder, $"{label.Name}.{ImageFormat.Bmp}"), ImageFormat.Bmp);
+#endif
             }
             this.treeView.StateImageList = imageList22;
         }
+
+#if DEBUG
+        readonly string _imgFolder;
+#endif
         PrivateFontCollection privateFontCollection = new PrivateFontCollection();
     }
 }

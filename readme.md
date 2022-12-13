@@ -1,8 +1,9 @@
-My objective is to use some glyphs from a TTF font for the state images in a `TreeView` and wanted to avoid `OwnerDraw` of the tree nodes if possible. As a proof-of-concept, I had an idea to stage the images in a `TableLayoutPanel` (where it would be easy to draw the glyphs) and then generate an `ImageList` at runtime that could be assigned to the `TreeView`. This all seems to work just fine, except that I'm getting pixel defects in the state images. Something bad (resizing, anti-aliasing, ?...) seems to be occurring.
+My objective is to use some glyphs from a TTF font for the state images in a `TreeView` and wanted to avoid `OwnerDraw` of the tree nodes if possible. As a proof-of-concept, I had an idea to stage the images in a `TableLayoutPanel` (where it would be easy to draw the glyphs) and then generate an `ImageList` at runtime that could be assigned to the `TreeView`.  
 
 [![glyphs][1]][1]
+Fig. 1 - Looking good in the TableLayoutPanel
 
-Here is a representative sampling of the 32 x 32 bitmaps thus generated (greatly magnified of course).
+There is a `#DEBUG` that outputs the bitmaps to .bmp files where they can be inspected using MS Paint. Here are a couple examples of the 32 x 32 bitmaps thus generated (greatly magnified of course).
 
 [![generated bitmaps][2]][2]
 

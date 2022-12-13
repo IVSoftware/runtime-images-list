@@ -9,7 +9,7 @@ In `#DEBUG` mode, the bitmaps are written to .bmp files for the sole purpose of 
 
 [![generated bitmaps][2]][2]
 
-**Fig. 2 - Looking good in the .bmp files.**
+**Fig. 2 - Looking good in the .bmp files.**.
 ***
 
 Something bad (resizing, anti-aliasing, ?...) seems to be occurring in the final state images, however, even when I'm careful to use consistent 32 x 32 sizes for everything. I've messed with the `ColorDepth` ans `ImageSize` properties of the `ImageList`. I've wasted hours trying to understand and fix it.  It's happening in my production code. It's happening in the minimal reproducible sample I have detailed below.

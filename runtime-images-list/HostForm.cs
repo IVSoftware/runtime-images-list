@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
+using static System.Net.Mime.MediaTypeNames;
+using System.Security.Policy;
 
 namespace runtime_images_list
 {
@@ -45,6 +48,15 @@ namespace runtime_images_list
             setLabelAttributes(label: label15, font: font, text: "\uE804", foreColor: Color.LightGreen, backColor: backColor);
 
             makeRuntimeImageList();
+
+            radioButtonUseBitmaps.CheckedChanged += (sender, e) =>
+            {
+                if (radioButtonUseBitmaps.Checked) BeginInvoke(() => makeRuntimeImageList());
+            };
+            radioButtonUseDrawstring.CheckedChanged += (sender, e) =>
+            {
+                if (radioButtonUseDrawstring.Checked) BeginInvoke(() => makeRuntimeImageListDirect());
+            };
         }        
         private void setLabelAttributes(Label label, Font font, string text, Color foreColor, Color backColor)
         {
@@ -74,6 +86,34 @@ namespace runtime_images_list
 #if DEBUG
                 bitmap.Save(Path.Combine(_imgFolder, $"{label.Name}.{ImageFormat.Bmp}"), ImageFormat.Bmp);
 #endif
+            }
+            this.treeView.StateImageList = imageList22;
+        }
+        private void makeRuntimeImageListDirect()
+        {
+            var imageList22 = new ImageList(this.components);
+            imageList22.ImageSize = new Size(32, 32);
+            imageList22.ColorDepth = ColorDepth.Depth8Bit;
+            foreach (
+                var label in 
+                tableLayoutPanel.Controls
+                .Cast<Control>()
+                .Where(_=>_ is Label)
+                .OrderBy(_=>int.Parse(_.Name.Replace("label", string.Empty))))
+            {
+                Bitmap drawDirect = new Bitmap(32, 32);
+                using (Graphics graphics = Graphics.FromImage(drawDirect))
+                {
+                    using (var brush = new SolidBrush(label.BackColor))
+                    {
+                        graphics.FillRectangle(brush, new Rectangle(0, 0, drawDirect.Width, drawDirect.Height));
+                    }
+                    using (var brush = new SolidBrush(label.ForeColor))
+                    {
+                        graphics.DrawString(label.Text, label.Font, brush, new PointF());
+                    }
+                }
+                imageList22.Images.Add(drawDirect);
             }
             this.treeView.StateImageList = imageList22;
         }

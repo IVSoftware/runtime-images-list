@@ -60,6 +60,8 @@ namespace runtime_images_list
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.radioButtonUseBitmaps = new System.Windows.Forms.RadioButton();
+            this.radioButtonUseDrawstring = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -374,11 +376,34 @@ namespace runtime_images_list
             this.treeView.Size = new System.Drawing.Size(263, 357);
             this.treeView.TabIndex = 1;
             // 
+            // radioButtonUseBitmaps
+            // 
+            this.radioButtonUseBitmaps.AutoSize = true;
+            this.radioButtonUseBitmaps.Checked = true;
+            this.radioButtonUseBitmaps.Location = new System.Drawing.Point(28, 308);
+            this.radioButtonUseBitmaps.Name = "radioButtonUseBitmaps";
+            this.radioButtonUseBitmaps.Size = new System.Drawing.Size(135, 29);
+            this.radioButtonUseBitmaps.TabIndex = 2;
+            this.radioButtonUseBitmaps.Text = "Use Bitmaps";
+            this.radioButtonUseBitmaps.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonUseDrawstring
+            // 
+            this.radioButtonUseDrawstring.AutoSize = true;
+            this.radioButtonUseDrawstring.Location = new System.Drawing.Point(180, 308);
+            this.radioButtonUseDrawstring.Name = "radioButtonUseDrawstring";
+            this.radioButtonUseDrawstring.Size = new System.Drawing.Size(157, 29);
+            this.radioButtonUseDrawstring.TabIndex = 2;
+            this.radioButtonUseDrawstring.Text = "Use Drawstring";
+            this.radioButtonUseDrawstring.UseVisualStyleBackColor = true;
+            // 
             // HostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 379);
+            this.Controls.Add(this.radioButtonUseDrawstring);
+            this.Controls.Add(this.radioButtonUseBitmaps);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "HostForm";
@@ -409,5 +434,7 @@ namespace runtime_images_list
         private System.Windows.Forms.Label label0;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TreeView treeView;
+        private RadioButton radioButtonUseBitmaps;
+        private RadioButton radioButtonUseDrawstring;
     }
 }

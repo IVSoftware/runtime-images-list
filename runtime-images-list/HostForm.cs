@@ -104,7 +104,7 @@ namespace runtime_images_list
                 Bitmap drawDirect = new Bitmap(32, 32);
                 using (Graphics graphics = Graphics.FromImage(drawDirect))
                 {
-                    using (var brush = new SolidBrush(label.BackColor))
+                    using (var brush = new SolidBrush(treeView.BackColor))
                     {
                         graphics.FillRectangle(brush, new Rectangle(0, 0, drawDirect.Width, drawDirect.Height));
                     }

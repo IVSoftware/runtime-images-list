@@ -5,7 +5,6 @@ namespace runtime_images_list
 {
     public partial class HostForm : Form
     {
-        const string IMGBASE = @"D:\Github\xamarin-21\sasquatch-net-standard-21\host-form\ImageGen\";
         public HostForm() => InitializeComponent();
         protected override void OnLoad(EventArgs e)
         {

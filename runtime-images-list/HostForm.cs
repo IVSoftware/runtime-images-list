@@ -1,4 +1,5 @@
-﻿using System.Drawing.Imaging;
+﻿using System.Diagnostics;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 
 namespace runtime_images_list
@@ -65,6 +66,8 @@ namespace runtime_images_list
                 .Where(_=>_ is Label)
                 .OrderBy(_=>int.Parse(_.Name.Replace("label", string.Empty))))
             {
+                Debug.Assert(label.Width.Equals(32), "Expecting 32 pixels");
+                Debug.Assert(label.Height.Equals(32), "Expecting 32 pixels");
                 Bitmap bitmap = new Bitmap(label.Width, label.Height);
                 label.DrawToBitmap(bitmap, label.ClientRectangle);
                 imageList22.Images.Add(bitmap);

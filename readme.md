@@ -29,10 +29,10 @@ Here's my code or [browse]() full sample on GitHub.
         public HostForm()
         {
             InitializeComponent();
-#if DEBUG
+    #if DEBUG
             _imgFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Paint")!;
             Directory.CreateDirectory(_imgFolder);
-#endif
+    #endif
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -89,16 +89,16 @@ Here's my code or [browse]() full sample on GitHub.
                 Bitmap bitmap = new Bitmap(label.Width, label.Height);
                 label.DrawToBitmap(bitmap, label.ClientRectangle);
                 imageList22.Images.Add(bitmap);
-#if DEBUG
+    #if DEBUG
                 bitmap.Save(Path.Combine(_imgFolder, $"{label.Name}.{ImageFormat.Bmp}"), ImageFormat.Bmp);
-#endif
+    #endif
             }
             this.treeView.StateImageList = imageList22;
         }
 
-#if DEBUG
+    #if DEBUG
         readonly string _imgFolder;
-#endif
+    #endif
         PrivateFontCollection privateFontCollection = new PrivateFontCollection();
     }
 

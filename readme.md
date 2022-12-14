@@ -1,3 +1,12 @@
+On my 'new' Windows 11 desktop, the bitmap I've been using to indicate a 'connected database' state is suddenly looking terrible on my 'existing' 4K 150% scaled display. The issue seems specific to `TreeView` because the same bitmap on the same form on the same display looks OK. It also looks OK on a Win 10 VM running on the new machine. What's also strange is that it mainly affects the green one.
+
+Anyway, I can't just sit and cry about it - I really do need to come up with a new way of drawing this that looks right 100% of the time. So I'm trying a new approach using a glyph font and it looks nice and clear when I put it up on a set of labels. What I need to do now is generate an ImageList to use for the tree view, and as a proof of concept I tried using `Control.DrawToBitmap` to generate a runtime ImageList from the labels. If I take the additional debug state of saving the bitmaps, I can open them up in MS Paint and they look fine.
+
+And for sure this improves things, but there are still some obvious pixel defects that look like noisy anti-aliasing or resizing artifacts. So, before I tear the rest of my hair out, maybe someone can spot what I'm doing wrong, or show me a better way.'
+
+
+
+
 My objective is to use some glyphs from a TTF font for the state images in a `TreeView` and wanted to avoid `OwnerDraw` of the tree nodes if possible. As a proof-of-concept, I had an idea to stage the images in a `TableLayoutPanel` (where it would be easy to draw the glyphs) and then generate an `ImageList` at runtime that could be assigned to the `TreeView`.  
 
 [![glyphs][1]][1]

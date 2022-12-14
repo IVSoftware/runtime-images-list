@@ -19,6 +19,7 @@ What I need to do now is generate an ImageList to use for the tree view, and as 
 And for sure this improves things, but there are still some obvious pixel defects that look like noisy anti-aliasing or resizing artifacts, even though I'm taking care to use consistent 32 x 32 sizes for everything. I've messed with the `ColorDepth` ans `ImageSize` properties of the `ImageList`. I've wasted hours trying to understand and fix it.  It's happening in my production code. It's happening in the minimal reproducible sample I have detailed below. So, before I tear the rest of my hair out, maybe someone can spot what I'm doing wrong, or show me a better way. 
 
 [![artifacts][4]][4]
+
 ***
 Here's my code or [browse](https://github.com/IVSoftware/runtime-images-list.git) full sample on GitHub.
 
